@@ -1,39 +1,39 @@
-# iframe_cashpay_plugin
-
-iframe_cashpay_plugin.
-A plugin to add payments iframe_cashpay to your Flutter application.
-
-## Platform Support
-
-| Android |
-| :-----: |
-
-## Getting Started
-
-Before you start, create an APIs with the payment providers and follow the setup instructions:
-https://documenter.getpostman.com/view/17550185/2s93XzwN9o
-
-## Usage
-
-To start using this plugin, add `iframe_cashpay_plugin` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/):
-
-```yaml
-dependencies:
-  pay: ^0.0.9
-```
-
-### Example
-
-```dart
+import 'package:flutter/material.dart';
 import 'package:iframe_cashpay_plugin/iframe_cashpay_plugin.dart';
 
+void main() {
+  runApp(const PayMaterialApp());
+}
+
+class PayMaterialApp extends StatelessWidget {
+  const PayMaterialApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: 'Pay for Flutter Demo',
+      home: PaySampleApp(title: 'PaySampleApp'),
+    );
+  }
+}
+
+class PaySampleApp extends StatefulWidget {
+  final String title;
+  const PaySampleApp({Key? key, required this.title}) : super(key: key);
+
+  @override
+  State<PaySampleApp> createState() => PaySampleAppState();
+}
+
 class PaySampleAppState extends State<PaySampleApp> {
-  
   Future<String> sendItems(itemList) async {
     //Send itemList for yor server and post CreateOrder.
     //iframeURL returned from Response CreateOrder
     //Documentation https://documenter.getpostman.com/view/17550185/2s93XzwN9o
-    //String iframeURL = "**********************************************************";
+    // String iframeURL =
+    //     "**********************************************************";
+    String iframeURL =
+        "https://www.tamkeen.com.ye:5050/msisdn/test/7453930af6e1e71152952c7c84a182292f0337ffb510f2e31b296bd45b1ff4d1ced24849ba523f0e580c2cb0ba712ed3d880b586de1bcb12a01a636af1e3133c";
     return iframeURL;
   }
 
@@ -102,4 +102,3 @@ class PaySampleAppState extends State<PaySampleApp> {
     Navigator.pop(context);
   }
 }
-```
