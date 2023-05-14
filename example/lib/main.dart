@@ -30,10 +30,8 @@ class PaySampleAppState extends State<PaySampleApp> {
     //Send itemList for yor server and post CreateOrder.
     //iframeURL returned from Response CreateOrder
     //Documentation https://documenter.getpostman.com/view/17550185/2s93XzwN9o
-    // String iframeURL =
-    //     "**********************************************************";
     String iframeURL =
-        "https://www.tamkeen.com.ye:5050/msisdn/test/7453930af6e1e71152952c7c84a182292f0337ffb510f2e31b296bd45b1ff4d1ced24849ba523f0e580c2cb0ba712ed3d880b586de1bcb12a01a636af1e3133c";
+        "https://www.tamkeen.com.ye:5050/msisdn/test/9ddb72b0152be2890dcced9a7eb4ea8441cbf0c407d40d567b631aca49e731a85aaf5f0241f75e22309ffeff76b20fb033c19270d35ef3226ac492e0794788b9";
     return iframeURL;
   }
 
@@ -82,21 +80,21 @@ class PaySampleAppState extends State<PaySampleApp> {
         ]));
   }
 
-  //Await for iFrameCashPay
+  //Function callback onConfirmPayment
   onConfirmPayment(message) {
     Navigator.pop(context);
     //After Confirmatin from iFrameCashPay.
-    //Here use CheckOrderStatus to check order status.
+    //Here use CheckOrderStatus on your server to check order status.
     //Documentation https://documenter.getpostman.com/view/17550185/2s93XzwN9o
   }
 
-//Await for iFrameCashPay
+  //Function callback onCancel
   onCancel(message) {
     //After Cancel from iFrameCashPay.
     Navigator.pop(context);
   }
 
-//Await for iFrameCashPay
+  //Function callback onError
   onError(message) {
     //After return Error from iFrameCashPay.
     Navigator.pop(context);

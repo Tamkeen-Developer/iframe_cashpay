@@ -1,7 +1,7 @@
 # iframe_cashpay_plugin
 
 iframe_cashpay_plugin.
-A plugin to add payments iframe_cashpay to your Flutter application.
+A plugin to add payments Cash E-wallet to your flutter application.
 
 ## Platform Support
 
@@ -19,7 +19,7 @@ To start using this plugin, add `iframe_cashpay_plugin` as a [dependency in your
 
 ```yaml
 dependencies:
-  pay: ^0.0.9
+  iframe_cashpay_plugin: ^1.0.3
 ```
 
 ### Example
@@ -28,7 +28,7 @@ dependencies:
 import 'package:iframe_cashpay_plugin/iframe_cashpay_plugin.dart';
 
 class PaySampleAppState extends State<PaySampleApp> {
-  
+
   Future<String> sendItems(itemList) async {
     //Send itemList for yor server and post CreateOrder.
     //iframeURL returned from Response CreateOrder
@@ -82,21 +82,21 @@ class PaySampleAppState extends State<PaySampleApp> {
         ]));
   }
 
-  //Await for iFrameCashPay
+//Function callback onConfirmPayment
   onConfirmPayment(message) {
     Navigator.pop(context);
     //After Confirmatin from iFrameCashPay.
-    //Here use CheckOrderStatus to check order status.
+    //Here use CheckOrderStatus on your server to check order status.
     //Documentation https://documenter.getpostman.com/view/17550185/2s93XzwN9o
   }
 
-//Await for iFrameCashPay
+//Function callback onCancel
   onCancel(message) {
     //After Cancel from iFrameCashPay.
     Navigator.pop(context);
   }
 
-//Await for iFrameCashPay
+//Function callback onError
   onError(message) {
     //After return Error from iFrameCashPay.
     Navigator.pop(context);

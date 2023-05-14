@@ -1,6 +1,6 @@
 name: iframe_cashpay_plugin
 description: A plugin to add payments iframe_cashpay to your flutter application..
-version: 0.0.9
+version: 1.0.3
 homepage: https://github.com/SalehDev1/iframe_cashpay_plugin/tree/master
 
 environment:
