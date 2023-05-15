@@ -30,8 +30,7 @@ class PaySampleAppState extends State<PaySampleApp> {
     //Send itemList for yor server and post CreateOrder.
     //iframeURL returned from Response CreateOrder
     //Documentation https://documenter.getpostman.com/view/17550185/2s93XzwN9o
-    String iframeURL =
-        "https://www.tamkeen.com.ye:5050/msisdn/test/9ddb72b0152be2890dcced9a7eb4ea8441cbf0c407d40d567b631aca49e731a85aaf5f0241f75e22309ffeff76b20fb033c19270d35ef3226ac492e0794788b9";
+    String iframeURL = "https://############################################";
     return iframeURL;
   }
 

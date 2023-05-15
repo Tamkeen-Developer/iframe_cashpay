@@ -19,7 +19,7 @@ To start using this plugin, add `iframe_cashpay_plugin` as a [dependency in your
 
 ```yaml
 dependencies:
-  iframe_cashpay_plugin: ^1.0.3
+  iframe_cashpay_plugin: ^1.0.4
 ```
 
 ### Example
@@ -33,7 +33,7 @@ class PaySampleAppState extends State<PaySampleApp> {
     //Send itemList for yor server and post CreateOrder.
     //iframeURL returned from Response CreateOrder
     //Documentation https://documenter.getpostman.com/view/17550185/2s93XzwN9o
-    //String iframeURL = "**********************************************************";
+    String iframeURL = "https://############################################";
     return iframeURL;
   }
 
@@ -86,7 +86,7 @@ class PaySampleAppState extends State<PaySampleApp> {
   onConfirmPayment(message) {
     Navigator.pop(context);
     //After Confirmatin from iFrameCashPay.
-    //Here use CheckOrderStatus to check order status.
+    //Here use CheckOrderStatus on your server to check order status.
     //Documentation https://documenter.getpostman.com/view/17550185/2s93XzwN9o
   }
 

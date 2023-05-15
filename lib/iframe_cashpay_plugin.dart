@@ -142,7 +142,7 @@ class _MyHomePageState extends State<IframeCashPay> {
     return Scaffold(
       body: WebviewScaffold(
         url: widget.iframeURL,
-        ignoreSSLErrors: true,
+        //ignoreSSLErrors: true,
         javascriptChannels: {
           JavascriptChannel(name: 'flutter', onMessageReceived: onMessage)
         },

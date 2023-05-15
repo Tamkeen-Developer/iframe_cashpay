@@ -1,3 +1,7 @@
+## [1.0.4]
+
+Improve docs.
+
 ## [1.0.3]
 
 Improve docs.
