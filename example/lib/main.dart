@@ -67,7 +67,7 @@ class PaySampleAppState extends State<PaySampleApp> {
                           padding: const EdgeInsets.only(
                               left: 10.0, right: 10.0, top: 10.0),
                           height: MediaQuery.of(context).size.height * 0.7,
-                          //IframeCashPay SDK to use iFrame CashPay
+                          //IframeCashPay widget displays the Cash E-wallet payment iframe.
                           child: IframeCashPay(
                             iframeURL: iframeURL,
                             onConfirmPayment: onConfirmPayment,
