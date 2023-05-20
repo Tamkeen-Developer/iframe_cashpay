@@ -19,7 +19,7 @@ To start using this plugin, add `iframe_cashpay_plugin` as a [dependency in your
 
 ```yaml
 dependencies:
-  iframe_cashpay_plugin: ^1.0.5
+  iframe_cashpay_plugin: ^1.0.6
 ```
 
 ## Example
@@ -70,7 +70,7 @@ class PaySampleAppState extends State<PaySampleApp> {
                           padding: const EdgeInsets.only(
                               left: 10.0, right: 10.0, top: 10.0),
                           height: MediaQuery.of(context).size.height * 0.7,
-                          //IframeCashPay SDK to use iFrame CashPay
+                          //IframeCashPay widget displays the Cash E-wallet payment iframe.
                           child: IframeCashPay(
                             iframeURL: iframeURL,
                             onConfirmPayment: onConfirmPayment,
@@ -104,13 +104,14 @@ class PaySampleAppState extends State<PaySampleApp> {
 }
 ```
 
-### The following is a brief explanation of each method:
+## The following is a brief explanation of each method:
 
-    sendItems(): method sends the item list to the server and creates an order. The method returns the iframe URL, which is then used to create an IframeCashPay widget.
-    The IframeCashPay widget displays the Cash E-wallet payment iframe.
+**sendItems():** This method sends the item list to the server and creates an order. The method returns the iframe URL, which is then used to create an IframeCashPay widget.
 
-    onConfirmPayment(): method is called when the user confirms the payment. This method can be used to handle the payment confirmation event.
+**IframeCashPay** widget displays the Cash E-wallet payment iframe.
 
-    onCancel(): method is called when the user cancels the payment. This method can be used to handle the payment cancellation event.
+**onConfirmPayment():** This method is called when the user confirms the payment.This method can be used to handle the payment confirmation event.
 
-    onError(): method is called when an error occurs during the payment process. This method can be used to handle the payment error event.
+**onCancel():** This method is called when the user cancels the payment. This method can be used to handle the payment cancellation event.
+
+**onError():** This method is called when an error occurs during the payment process. This method can be used to handle the payment error event.
