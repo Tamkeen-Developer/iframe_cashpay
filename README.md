@@ -106,7 +106,7 @@ class PaySampleAppState extends State<PaySampleApp> {
 
 ## The following is a brief explanation of each method:
 
-**sendItems():** This method sends the item list to the server and creates an order. The method returns the iframe URL, which is then used to create an  IframeCashPay widget.
+**sendItems():** This method sends the item list to the server and creates an order. The method returns the iframe URL, which is then used to create an IframeCashPay widget.
 **IframeCashPay** widget displays the Cash E-wallet payment iframe.
 **onConfirmPayment():** This method is called when the user confirms the payment.This method can be used to handle the payment confirmation event.
 **onCancel():** This method is called when the user cancels the payment. This method can be used to handle the payment cancellation event.
