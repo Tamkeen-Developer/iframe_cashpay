@@ -1,7 +1,7 @@
 # iframe_cashpay_plugin
 
 iframe_cashpay_plugin.
-A plugin to add payments iframe_cashpay to your Flutter application.
+A plugin to add payments Cash E-wallet to your flutter application.
 
 ## Platform Support
 
@@ -11,7 +11,7 @@ A plugin to add payments iframe_cashpay to your Flutter application.
 ## Getting Started
 
 Before you start, create an APIs with the payment providers and follow the setup instructions:
-https://documenter.getpostman.com/view/17550185/2s93XzwN9o
+[https://documenter.getpostman.com/view/17550185/2s93XzwN9o](https://documenter.getpostman.com/view/17550185/2s93XzwN9o)
 
 ## Usage
 
@@ -19,21 +19,21 @@ To start using this plugin, add `iframe_cashpay_plugin` as a [dependency in your
 
 ```yaml
 dependencies:
-  pay: ^0.0.9
+  iframe_cashpay_plugin: ^1.0.5
 ```
 
-### Example
+## Example
 
 ```dart
 import 'package:iframe_cashpay_plugin/iframe_cashpay_plugin.dart';
 
 class PaySampleAppState extends State<PaySampleApp> {
-  
+
   Future<String> sendItems(itemList) async {
     //Send itemList for yor server and post CreateOrder.
     //iframeURL returned from Response CreateOrder
     //Documentation https://documenter.getpostman.com/view/17550185/2s93XzwN9o
-    //String iframeURL = "**********************************************************";
+    String iframeURL = "https://############################################";
     return iframeURL;
   }
 
@@ -82,24 +82,35 @@ class PaySampleAppState extends State<PaySampleApp> {
         ]));
   }
 
-  //Await for iFrameCashPay
+//Function callback onConfirmPayment
   onConfirmPayment(message) {
     Navigator.pop(context);
     //After Confirmatin from iFrameCashPay.
-    //Here use CheckOrderStatus to check order status.
+    //Here use CheckOrderStatus on your server to check order status.
     //Documentation https://documenter.getpostman.com/view/17550185/2s93XzwN9o
   }
 
-//Await for iFrameCashPay
+//Function callback onCancel
   onCancel(message) {
     //After Cancel from iFrameCashPay.
     Navigator.pop(context);
   }
 
-//Await for iFrameCashPay
+//Function callback onError
   onError(message) {
     //After return Error from iFrameCashPay.
     Navigator.pop(context);
   }
 }
 ```
+
+### The following is a brief explanation of each method:
+
+    sendItems(): method sends the item list to the server and creates an order. The method returns the iframe URL, which is then used to create an IframeCashPay widget.
+    The IframeCashPay widget displays the Cash E-wallet payment iframe.
+
+    onConfirmPayment(): method is called when the user confirms the payment. This method can be used to handle the payment confirmation event.
+
+    onCancel(): method is called when the user cancels the payment. This method can be used to handle the payment cancellation event.
+
+    onError(): method is called when an error occurs during the payment process. This method can be used to handle the payment error event.

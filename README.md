@@ -11,7 +11,7 @@ A plugin to add payments Cash E-wallet to your flutter application.
 ## Getting Started
 
 Before you start, create an APIs with the payment providers and follow the setup instructions:
-https://documenter.getpostman.com/view/17550185/2s93XzwN9o
+[https://documenter.getpostman.com/view/17550185/2s93XzwN9o](https://documenter.getpostman.com/view/17550185/2s93XzwN9o)
 
 ## Usage
 
@@ -19,10 +19,10 @@ To start using this plugin, add `iframe_cashpay_plugin` as a [dependency in your
 
 ```yaml
 dependencies:
-  iframe_cashpay_plugin: ^1.0.4
+  iframe_cashpay_plugin: ^1.0.5
 ```
 
-### Example
+## Example
 
 ```dart
 import 'package:iframe_cashpay_plugin/iframe_cashpay_plugin.dart';
@@ -103,3 +103,15 @@ class PaySampleAppState extends State<PaySampleApp> {
   }
 }
 ```
+
+## The following is a brief explanation of each method:
+
+    `sendItems():` method sends the item list to the server and creates an order.
+    The method returns the iframe URL, which is then used to create an IframeCashPay widget.
+    The IframeCashPay widget displays the Cash E-wallet payment iframe.
+
+    onConfirmPayment(): method is called when the user confirms the payment. This method can be used to handle the payment confirmation event.
+
+    onCancel(): method is called when the user cancels the payment. This method can be used to handle the payment cancellation event.
+
+    onError(): method is called when an error occurs during the payment process. This method can be used to handle the payment error event.
