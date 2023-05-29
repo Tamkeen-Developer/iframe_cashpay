@@ -19,21 +19,35 @@ To start using this plugin, add `iframe_cashpay_plugin` as a [dependency in your
 
 ```yaml
 dependencies:
-  iframe_cashpay_plugin: ^1.0.6
+  iframe_cashpay_plugin: ^1.0.7
 ```
 
 ## Example
 
-```dart
+````dart
 import 'package:iframe_cashpay_plugin/iframe_cashpay_plugin.dart';
 
 class PaySampleAppState extends State<PaySampleApp> {
-
+ String orderId = "";
+/// This function Send itemList for yor server.
+///
+/// @param itemList.
+/// @return iframeURL and orderId.
+///
+/// Example:
+///
+/// ```
+/// var res = sendItems(itemList);
+/// print(res.then((iframeURL)=>iframeURL)); // "https://########"
+/// ```
   Future<String> sendItems(itemList) async {
     //Send itemList for yor server and post CreateOrder.
     //iframeURL returned from Response CreateOrder
     //Documentation https://documenter.getpostman.com/view/17550185/2s93XzwN9o
     String iframeURL = "https://############################################";
+    //orderID returned from Response CreateOrder
+    //Store the orderID in the orderId variable to use on function onConfirmPayment
+    orderId = "";
     return iframeURL;
   }
 
@@ -71,6 +85,22 @@ class PaySampleAppState extends State<PaySampleApp> {
                               left: 10.0, right: 10.0, top: 10.0),
                           height: MediaQuery.of(context).size.height * 0.7,
                           //IframeCashPay widget displays the Cash E-wallet payment iframe.
+                         /// This widget IframeCashPay displays the Cash E-wallet payment iframe.
+                        ///
+                        /// @param iframeURL .
+                        /// @param onConfirmPayment.
+                        /// @param onCancel.
+                        /// @param onError.
+                        /// @return message onConfirmPayment or onCancel or onError.
+                        ///
+                        /// Example:
+                        ///
+                        /// ```
+                        ///  IframeCashPay( iframeURL: "https://########",
+                        ///    onConfirmPayment: onConfirmPayment,
+                        ///    onCancel: onCancel,
+                        ///    onError: onError,);
+                        /// ```
                           child: IframeCashPay(
                             iframeURL: iframeURL,
                             onConfirmPayment: onConfirmPayment,
@@ -82,27 +112,56 @@ class PaySampleAppState extends State<PaySampleApp> {
         ]));
   }
 
-//Function callback onConfirmPayment
+/// This function callback onConfirmPayment.
+///
+/// @param message.
+/// @return message onConfirmPayment.
+///
+/// Example:
+///
+/// ```
+/// onConfirmPayment("NEEDTOCHECK");
+/// ```
   onConfirmPayment(message) {
-    Navigator.pop(context);
     //After Confirmatin from iFrameCashPay.
-    //Here use CheckOrderStatus on your server to check order status.
-    //Documentation https://documenter.getpostman.com/view/17550185/2s93XzwN9o
+    if (orderId.isNotEmpty) {
+      //Here use CheckOrderStatus on your server to check order status.
+      //Documentation https://documenter.getpostman.com/view/17550185/2s93XzwN9o
+    }
+    Navigator.pop(context);
   }
 
-//Function callback onCancel
+/// This function callback onCancel.
+///
+/// @param message.
+/// @return message onCancel.
+///
+/// Example:
+///
+/// ```
+/// onCancel("Cancel");
+/// ```
   onCancel(message) {
     //After Cancel from iFrameCashPay.
     Navigator.pop(context);
   }
 
-//Function callback onError
+/// This function callback onError.
+///
+/// @param message.
+/// @return message onError.
+///
+/// Example:
+///
+/// ```
+/// onError("Error");
+/// ```
   onError(message) {
     //After return Error from iFrameCashPay.
     Navigator.pop(context);
   }
 }
-```
+````
 
 ## The following is a brief explanation of each method:
 

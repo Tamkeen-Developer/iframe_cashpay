@@ -26,11 +26,15 @@ class PaySampleApp extends StatefulWidget {
 }
 
 class PaySampleAppState extends State<PaySampleApp> {
+  String orderId = "";
   Future<String> sendItems(itemList) async {
     //Send itemList for yor server and post CreateOrder.
     //iframeURL returned from Response CreateOrder
     //Documentation https://documenter.getpostman.com/view/17550185/2s93XzwN9o
-    String iframeURL = "https://############################################";
+    String iframeURL = "";
+    //orderID returned from Response CreateOrder
+    //Store the orderID in the orderId variable to use on function onConfirmPayment
+    orderId = "";
     return iframeURL;
   }
 
@@ -81,10 +85,12 @@ class PaySampleAppState extends State<PaySampleApp> {
 
   //Function callback onConfirmPayment
   onConfirmPayment(message) {
-    Navigator.pop(context);
     //After Confirmatin from iFrameCashPay.
-    //Here use CheckOrderStatus on your server to check order status.
-    //Documentation https://documenter.getpostman.com/view/17550185/2s93XzwN9o
+    if (orderId.isNotEmpty) {
+      //Here use CheckOrderStatus on your server to check order status.
+      //Documentation https://documenter.getpostman.com/view/17550185/2s93XzwN9o
+    }
+    Navigator.pop(context);
   }
 
   //Function callback onCancel
