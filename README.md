@@ -19,7 +19,7 @@ To start using this plugin, add `iframe_cashpay_plugin` as a [dependency in your
 
 ```yaml
 dependencies:
-  iframe_cashpay_plugin: ^1.0.7
+  iframe_cashpay_plugin: ^1.0.8
 ```
 
 ## Example
@@ -61,6 +61,11 @@ class PaySampleAppState extends State<PaySampleApp> {
         body: ListView(children: [
           ElevatedButton(
               child: const Text('الدفع عبر كاش باي'),
+              style: ElevatedButton.styleFrom(
+                primary:
+                    const Color.fromARGB(255, 0, 120, 120), // Background color
+                textStyle: const TextStyle(color: Colors.white), // Text color
+              ),
               onPressed: () async {
                 await sendItems({
                   {
@@ -73,6 +78,7 @@ class PaySampleAppState extends State<PaySampleApp> {
                   }
                 }).then((iframeURL) => showModalBottomSheet(
                     context: context,
+                    isDismissible: false,
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.vertical(
                         top: Radius.circular(30.0),

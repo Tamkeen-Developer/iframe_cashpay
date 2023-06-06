@@ -27,6 +27,18 @@ class PaySampleApp extends StatefulWidget {
 
 class PaySampleAppState extends State<PaySampleApp> {
   String orderId = "";
+
+  /// This function Send itemList for yor server.
+  ///
+  /// @param itemList.
+  /// @return iframeURL and orderId.
+  ///
+  /// Example:
+  ///
+  /// ```
+  /// var res = sendItems(itemList);
+  /// print(res.then((iframeURL)=>iframeURL)); // "https://########"
+  /// ```
   Future<String> sendItems(itemList) async {
     //Send itemList for yor server and post CreateOrder.
     //iframeURL returned from Response CreateOrder
@@ -48,6 +60,11 @@ class PaySampleAppState extends State<PaySampleApp> {
         body: ListView(children: [
           ElevatedButton(
               child: const Text('الدفع عبر كاش باي'),
+              style: ElevatedButton.styleFrom(
+                primary:
+                    const Color.fromARGB(255, 0, 120, 120), // Background color
+                textStyle: const TextStyle(color: Colors.white), // Text color
+              ),
               onPressed: () async {
                 await sendItems({
                   {
@@ -60,6 +77,7 @@ class PaySampleAppState extends State<PaySampleApp> {
                   }
                 }).then((iframeURL) => showModalBottomSheet(
                     context: context,
+                    isDismissible: false,
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.vertical(
                         top: Radius.circular(30.0),
@@ -72,6 +90,22 @@ class PaySampleAppState extends State<PaySampleApp> {
                               left: 10.0, right: 10.0, top: 10.0),
                           height: MediaQuery.of(context).size.height * 0.7,
                           //IframeCashPay widget displays the Cash E-wallet payment iframe.
+                          /// This widget IframeCashPay displays the Cash E-wallet payment iframe.
+                          ///
+                          /// @param iframeURL .
+                          /// @param onConfirmPayment.
+                          /// @param onCancel.
+                          /// @param onError.
+                          /// @return message onConfirmPayment or onCancel or onError.
+                          ///
+                          /// Example:
+                          ///
+                          /// ```
+                          ///  IframeCashPay( iframeURL: "https://########",
+                          ///    onConfirmPayment: onConfirmPayment,
+                          ///    onCancel: onCancel,
+                          ///    onError: onError,);
+                          /// ```
                           child: IframeCashPay(
                             iframeURL: iframeURL,
                             onConfirmPayment: onConfirmPayment,
@@ -83,7 +117,16 @@ class PaySampleAppState extends State<PaySampleApp> {
         ]));
   }
 
-  //Function callback onConfirmPayment
+  /// This function callback onConfirmPayment.
+  ///
+  /// @param message.
+  /// @return message onConfirmPayment.
+  ///
+  /// Example:
+  ///
+  /// ```
+  /// onConfirmPayment("NEEDTOCHECK");
+  /// ```
   onConfirmPayment(message) {
     //After Confirmatin from iFrameCashPay.
     if (orderId.isNotEmpty) {
@@ -93,13 +136,31 @@ class PaySampleAppState extends State<PaySampleApp> {
     Navigator.pop(context);
   }
 
-  //Function callback onCancel
+  /// This function callback onCancel.
+  ///
+  /// @param message.
+  /// @return message onCancel.
+  ///
+  /// Example:
+  ///
+  /// ```
+  /// onCancel("Cancel");
+  /// ```
   onCancel(message) {
     //After Cancel from iFrameCashPay.
     Navigator.pop(context);
   }
 
-  //Function callback onError
+  /// This function callback onError.
+  ///
+  /// @param message.
+  /// @return message onError.
+  ///
+  /// Example:
+  ///
+  /// ```
+  /// onError("Error");
+  /// ```
   onError(message) {
     //After return Error from iFrameCashPay.
     Navigator.pop(context);

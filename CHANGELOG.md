@@ -1,3 +1,7 @@
+## [1.0.8]
+
+Improve code.
+
 ## [1.0.7]
 
 Improve docs.
