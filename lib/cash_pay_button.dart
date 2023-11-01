@@ -10,7 +10,7 @@ class CashPayButton extends StatelessWidget {
    required this.width,
 
      this.alignment, this.margin, this.height, this.padding, this.decoration, this.child, this.onTap
-  ,
+
   }) : super(
     key: key,
   );
