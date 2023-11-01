@@ -45,38 +45,40 @@ class PaySampleAppState extends State<PaySampleApp> {
         ),
         backgroundColor: Colors.white,
         body: ListView(children: [
-          CashPayButton(width:MediaQuery.of(context).size.width ,onTap: () async {
-            await sendItems({
-              {
-                "itemName": "كتاب",
-                "amount": 2000,
-              },
-              {
-                "itemName": "ساعة",
-                "amount": 5000,
-              }
-            }).then((iframeURL) => showModalBottomSheet(
-                context: context,
-                isDismissible: false,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(30.0),
-                  ),
-                ),
-                isScrollControlled: true,
-                builder: (BuildContext context) {
-                  return Container(
-                      padding: const EdgeInsets.only(
-                          left: 10.0, right: 10.0, top: 10.0),
-                      height: MediaQuery.of(context).size.height * 0.7,
-                     
-                      child: IframeCashPay(
-                        iframeURL: iframeURL,
-                        onConfirmPayment: onConfirmPayment,
-                        onCancel: onCancel,
-                        onError: onError,
-                      ));
-                }));})
+          ElevatedButton(
+              child: const Text('الدفع عبر كاش باي'),
+              onPressed: () async {
+                await sendItems({
+                  {
+                    "itemName": "كتاب",
+                    "amount": 2000,
+                  },
+                  {
+                    "itemName": "ساعة",
+                    "amount": 5000,
+                  }
+                }).then((iframeURL) => showModalBottomSheet(
+                    context: context,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(30.0),
+                      ),
+                    ),
+                    isScrollControlled: true,
+                    builder: (BuildContext context) {
+                      return Container(
+                          padding: const EdgeInsets.only(
+                              left: 10.0, right: 10.0, top: 10.0),
+                          height: MediaQuery.of(context).size.height * 0.7,
+                          //IframeCashPay SDK to use iFrame CashPay
+                          child: IframeCashPay(
+                            iframeURL: iframeURL,
+                            onConfirmPayment: onConfirmPayment,
+                            onCancel: onCancel,
+                            onError: onError,
+                          ));
+                    }));
+              }),
         ]));
   }
 
