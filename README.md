@@ -27,7 +27,7 @@ To start using this plugin, add `iframe_cashpay_plugin` as a [dependency in your
 
 ```yaml
 dependencies:
-  iframe_cashpay_plugin: ^2.0.1
+  iframe_cashpay_plugin: ^2.0.2
 ```
 
 ### Example
