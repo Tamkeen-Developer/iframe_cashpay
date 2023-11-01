@@ -75,13 +75,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_webview_plugin:
+  flutter_webview_cash:
     dependency: transitive
     description:
-      path: "../flutter_webview_plugin-master"
-      relative: true
-    source: path
-    version: "0.4.0"
+      name: flutter_webview_cash
+      sha256: "0a021d6a6959c811f543af19044766bafb164ea4ac248f760b32f352ab509c2b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.0"
   http:
     dependency: "direct main"
     description:

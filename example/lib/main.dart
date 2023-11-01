@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iframe_cashpay_plugin/iframe_cashpay_plugin.dart';
+import 'package:iframe_cashpay_plugin/cash_pay_button.dart';
 
 void main() {
   runApp(const PayMaterialApp());
@@ -58,62 +59,54 @@ class PaySampleAppState extends State<PaySampleApp> {
         ),
         backgroundColor: Colors.white,
         body: ListView(children: [
-          ElevatedButton(
-              child: const Text('الدفع عبر كاش باي'),
-              style: ElevatedButton.styleFrom(
-                primary:
-                    const Color.fromARGB(255, 0, 120, 120), // Background color
-                textStyle: const TextStyle(color: Colors.white), // Text color
-              ),
-              onPressed: () async {
-                await sendItems({
-                  {
-                    "itemName": "كتاب",
-                    "amount": 2000,
-                  },
-                  {
-                    "itemName": "ساعة",
-                    "amount": 5000,
-                  }
-                }).then((iframeURL) => showModalBottomSheet(
-                    context: context,
-                    isDismissible: false,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(30.0),
-                      ),
-                    ),
-                    isScrollControlled: true,
-                    builder: (BuildContext context) {
-                      return Container(
-                          padding: const EdgeInsets.only(
-                              left: 10.0, right: 10.0, top: 10.0),
-                          height: MediaQuery.of(context).size.height * 0.7,
-                          //IframeCashPay widget displays the Cash E-wallet payment iframe.
-                          /// This widget IframeCashPay displays the Cash E-wallet payment iframe.
-                          ///
-                          /// @param iframeURL .
-                          /// @param onConfirmPayment.
-                          /// @param onCancel.
-                          /// @param onError.
-                          /// @return message onConfirmPayment or onCancel or onError.
-                          ///
-                          /// Example:
-                          ///
-                          /// ```
-                          ///  IframeCashPay( iframeURL: "https://########",
-                          ///    onConfirmPayment: onConfirmPayment,
-                          ///    onCancel: onCancel,
-                          ///    onError: onError,);
-                          /// ```
-                          child: IframeCashPay(
-                            iframeURL: iframeURL,
-                            onConfirmPayment: onConfirmPayment,
-                            onCancel: onCancel,
-                            onError: onError,
-                          ));
-                    }));
-              }),
+          CashPayButton(width:MediaQuery.of(context).size.width ,onTap: () async {
+            await sendItems({
+              {
+                "itemName": "كتاب",
+                "amount": 2000,
+              },
+              {
+                "itemName": "ساعة",
+                "amount": 5000,
+              }
+            }).then((iframeURL) => showModalBottomSheet(
+                context: context,
+                isDismissible: false,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(30.0),
+                  ),
+                ),
+                isScrollControlled: true,
+                builder: (BuildContext context) {
+                  return Container(
+                      padding: const EdgeInsets.only(
+                          left: 10.0, right: 10.0, top: 10.0),
+                      height: MediaQuery.of(context).size.height * 0.7,
+                      //IframeCashPay widget displays the Cash E-wallet payment iframe.
+                      /// This widget IframeCashPay displays the Cash E-wallet payment iframe.
+                      ///
+                      /// @param iframeURL .
+                      /// @param onConfirmPayment.
+                      /// @param onCancel.
+                      /// @param onError.
+                      /// @return message onConfirmPayment or onCancel or onError.
+                      ///
+                      /// Example:
+                      ///
+                      /// ```
+                      ///  IframeCashPay( iframeURL: "https://########",
+                      ///    onConfirmPayment: onConfirmPayment,
+                      ///    onCancel: onCancel,
+                      ///    onError: onError,);
+                      /// ```
+                      child: IframeCashPay(
+                        iframeURL: iframeURL,
+                        onConfirmPayment: onConfirmPayment,
+                        onCancel: onCancel,
+                        onError: onError,
+                      ));
+                }));})
         ]));
   }
 

@@ -19,13 +19,14 @@ To start using this plugin, add `iframe_cashpay_plugin` as a [dependency in your
 
 ```yaml
 dependencies:
-  pay: ^0.0.9
+  iframe_cashpay_plugin: ^2.0.0
 ```
 
 ### Example
 
 ```dart
 import 'package:iframe_cashpay_plugin/iframe_cashpay_plugin.dart';
+import 'package:iframe_cashpay_plugin/CashPayButton.dart';
 
 class PaySampleAppState extends State<PaySampleApp> {
   

@@ -1,3 +1,6 @@
+## [2.0.0]
+
+Improve code.
 ## [1.0.8]
 
 Improve code.
