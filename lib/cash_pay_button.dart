@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class CashPayButton extends StatelessWidget {
 
 
-  CashPayButton({
+  const CashPayButton({
     Key? key,
 
    required this.width,
@@ -15,7 +15,7 @@ class CashPayButton extends StatelessWidget {
     key: key,
   );
 
-  final Alignment? alignment;
+   final Alignment? alignment;
 
   final EdgeInsetsGeometry? margin;
 
@@ -41,7 +41,7 @@ class CashPayButton extends StatelessWidget {
         : cashPayButtonWidget;
   }
 
-  Widget get cashPayButtonWidget =>     Padding(padding: EdgeInsets.all(10),
+   Widget get cashPayButtonWidget =>     Padding(padding: const EdgeInsets.all(10),
     child:GestureDetector(
         onTap: onTap,
         child:
@@ -49,20 +49,20 @@ class CashPayButton extends StatelessWidget {
             height: 50,
             width: width,
             decoration: BoxDecoration(
-              color:  Color(0xff0A6868),
+              color:  const Color(0xff0A6868),
 
               borderRadius: BorderRadius.circular(10),
               // color: HomeTabTheme.grey.withOpacity(0.2),
-              boxShadow: <BoxShadow>[
-                BoxShadow(
+              boxShadow: const <BoxShadow>[
+                 BoxShadow(
                     color:  Color(0xff0A6868),
-                    offset: const Offset(1.1, 1.1),
+                    offset:  Offset(1.1, 1.1),
                     blurRadius: 5.0),
               ],
             ),
 
 
 
-            child: Image(image:AssetImage('assets/images/cashpay.png', package: 'iframe_cashpay_plugin') ,)
+            child: const Image(image: AssetImage('assets/images/cashpay.png', package: 'iframe_cashpay_plugin') ,)
         )) ,);
 }
