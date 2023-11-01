@@ -78,7 +78,23 @@ class PaySampleAppState extends State<PaySampleApp> {
                       padding: const EdgeInsets.only(
                           left: 10.0, right: 10.0, top: 10.0),
                       height: MediaQuery.of(context).size.height * 0.7,
-                     
+                      //IframeCashPay widget displays the Cash E-wallet payment iframe.
+                      /// This widget IframeCashPay displays the Cash E-wallet payment iframe.
+                      ///
+                      /// @param iframeURL .
+                      /// @param onConfirmPayment.
+                      /// @param onCancel.
+                      /// @param onError.
+                      /// @return message onConfirmPayment or onCancel or onError.
+                      ///
+                      /// Example:
+                      ///
+                      /// ```
+                      ///  IframeCashPay( iframeURL: "https://########",
+                      ///    onConfirmPayment: onConfirmPayment,
+                      ///    onCancel: onCancel,
+                      ///    onError: onError,);
+                      /// ```
                       child: IframeCashPay(
                         iframeURL: iframeURL,
                         onConfirmPayment: onConfirmPayment,
