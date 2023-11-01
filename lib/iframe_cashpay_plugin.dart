@@ -21,9 +21,6 @@ class IframeCashPay extends StatefulWidget {
 
   @override
   State<IframeCashPay> createState() => _MyHomePageState();
-
-
-
 }
 
 class _MyHomePageState extends State<IframeCashPay> {
@@ -117,7 +114,6 @@ class _MyHomePageState extends State<IframeCashPay> {
     });
   }
 
-
   onMessage(JavascriptMessage message) {
     if (message.message == "Confirmation" || message.message == "NEEDTOCHECK") {
       widget.onConfirmPayment(message);
@@ -144,11 +140,7 @@ class _MyHomePageState extends State<IframeCashPay> {
 
   @override
   Widget build(BuildContext context) {
-    return
-
-
-      Scaffold(
-
+    return Scaffold(
       body: WebviewScaffold(
         url: widget.iframeURL,
         ignoreSSLErrors: true,
