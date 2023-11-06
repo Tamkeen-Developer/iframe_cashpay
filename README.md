@@ -14,12 +14,14 @@ A plugin to add payments iframe_cashpay to your Flutter application.
 ## Platform Support
 
 | Android |
+|:-------:|
+|   IOS   |
 | :-----: |
 
 ## Getting Started
 
 Before you start, create an APIs with the payment providers and follow the setup instructions:
-https://documenter.getpostman.com/view/17550185/2s93XzwN9o
+https://documenter.getpostman.com/view/29850098/2s9YXcd5Fd
 
 ## Usage
 
@@ -27,7 +29,7 @@ To start using this plugin, add `iframe_cashpay_plugin` as a [dependency in your
 
 ```yaml
 dependencies:
-  iframe_cashpay_plugin: ^2.0.3
+  iframe_cashpay_plugin: ^2.0.4
 ```
 
 ### Example
