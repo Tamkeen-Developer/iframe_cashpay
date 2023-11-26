@@ -129,7 +129,7 @@ class PaySampleAppState extends State<PaySampleApp> {
       //Here use CheckOrderStatus on your server to check order status.
       //Documentation https://documenter.getpostman.com/view/17550185/2s93XzwN9o
     }
-    Navigator.pop(context);
+
   }
 
   /// This function callback onCancel.

@@ -117,6 +117,8 @@ class _MyHomePageState extends State<IframeCashPay> {
   onMessage(JavascriptMessage message) {
     if (message.message == "Confirmation" || message.message == "NEEDTOCHECK") {
       widget.onConfirmPayment(message);
+      Navigator.pop(context);
+
     } else if (message.message == "Cancel") {
       widget.onCancel(message);
     } else if (message.message == "Error") {
